@@ -98,7 +98,9 @@ jobs:
       - name: Build Tweak for Sideloading
         run: |
           cd ${{ github.workspace }}/main
-          make clean package SIDELOADING=1 
+          make clean package SIDELOADING=1 WERROR=0 \
+            ADDITIONAL_OBJCXXFLAGS="-Wno-vla-cxx-extension -Wno-error=vla-cxx-extension" \
+            ADDITIONAL_CFLAGS="-Wno-vla -Wno-error=vla"
         env:
           THEOS: ${{ github.workspace }}/theos
 
