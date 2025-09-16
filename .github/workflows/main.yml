@@ -104,7 +104,6 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Inject tweak into provided IPA
-        id: build_package
         run: |
           cd ${{ github.workspace }}/main/packages
           tweakName=$(ls)
