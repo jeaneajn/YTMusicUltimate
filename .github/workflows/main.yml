@@ -96,6 +96,7 @@ jobs:
         run: wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/main/ytm.ipa
 
       - name: Build Tweak for Sideloading
+        id: build_package
         run: |
           cd ${{ github.workspace }}/main
           make clean package SIDELOADING=1 ADDITIONAL_OBJCXXFLAGS="-Wno-error=vla-cxx-extension"
